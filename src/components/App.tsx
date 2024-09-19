@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { store } from "/home/cpmoore0317/atlas-react-redux/src/store";
+import { store } from "../store";
 
 function App() {
   <Provider store={store}>
