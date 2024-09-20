@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DeleteCardButton from './DeleteCardButton';
+import DeleteCardButton from "./DeleteCardButton";
 
 interface CardProps {
   title: string;
