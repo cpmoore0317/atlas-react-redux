@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import DeleteCardButton from "./DeleteCardButton";
+import React from 'react';
+import DeleteCardButton from './DeleteCardButton';
 
 interface CardProps {
   title: string;
@@ -7,17 +7,13 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ title, description }) => {
-  const [hovered, setHovered] = useState(false);
-
   return (
-    <div 
-      className="card"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <h3>{title}</h3>
-      <p>{description}</p>
-      {hovered && <DeleteCardButton />}
+    <div className="card group/card m-3 flex min-h-24 w-full flex-col items-start rounded bg-off-white-light px-4 py-2 text-blue">
+      <h5 className="my-2 flex w-full items-end justify-between text-xl font-black">
+        <span>{title}</span>
+        <DeleteCardButton />
+      </h5>
+      <p className="mt-0 text-left">{description}</p>
     </div>
   );
 };
