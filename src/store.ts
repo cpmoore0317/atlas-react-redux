@@ -1,14 +1,18 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { useDispatch, useSelector } from "react-redux";
+import listsReducer from './slices/listsSlice'; // Import the lists slice
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
+// Configure the store and add the `listsReducer` to the store's reducer
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    lists: listsReducer,  // Add the lists reducer to the store
+  },
 });
 
-// These types are helpful for the typescript autocomplete
+// Define types for the state and dispatch
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-//Add types to dispatch and selector hooks
-export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
-export const useAppSelector = useSelector.withTypes<RootState>();
+// Typed hooks for use in components
+export const useAppDispatch: () => AppDispatch = useDispatch;
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
