@@ -1,29 +1,25 @@
 import React from 'react';
 import List from './List';
 
-const Board = () => {
+const Board: React.FC = () => {
   const lists = [
     {
       title: 'To Do',
       cards: [
-        { title: 'Task 1', description: 'Description 1' },
-        { title: 'Task 2', description: 'Description 2' },
+        { title: 'Lorem ipsum dolor', description: 'Sed viverra, diam eu facilisis bibendum, ante orci placerat quam' },
+        // Add more cards as needed
       ],
     },
-    {
-      title: 'In Progress',
-      cards: [
-        { title: 'Task 3', description: 'Description 3' },
-        { title: 'Task 4', description: 'Description 4' },
-      ],
-    },
+    // Add more lists as needed
   ];
 
   return (
-    <div className="board">
-      {lists.map((list, index) => (
-        <List key={index} title={list.title} cards={list.cards} />
-      ))}
+    <div className="m-auto h-screen w-screen overflow-x-scroll text-center">
+      <div className="flex h-full space-x-4">
+        {lists.map((list, index) => (
+          <List key={index} title={list.title} cards={list.cards} />
+        ))}
+      </div>
     </div>
   );
 };
