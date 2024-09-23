@@ -9,13 +9,13 @@ const Footer: React.FC = () => {
   const handleAddList = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim()) {
-      dispatch(addList(title));
-      setTitle('');
+      dispatch(addList(title)); // Dispatch addList action
+      setTitle(''); // Clear input field after submitting
     }
   };
 
   const handleClearBoard = () => {
-    dispatch(clearBoard());
+    dispatch(clearBoard()); // Dispatch clearBoard action
   };
 
   return (
