@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="sticky bottom-0 left-0 flex w-screen items-center justify-center space-x-8 border-t-2 border-blue bg-off-white-light p-8">
+    <footer className="sticky bottom-0 left-0 flex w-screen items-center justify-center space-x-2 border-t-2 border-blue bg-off-white-light p-8">
       <form onSubmit={handleAddList}>
         <input
           type="text"
