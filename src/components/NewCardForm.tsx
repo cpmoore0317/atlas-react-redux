@@ -1,7 +1,8 @@
+// src/components/NewCardForm.tsx
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCardToList } from '../slices/listsSlice';
-import { v4 as uuidv4 } from 'uuid';
+import { createCard } from '../slices/cardsSlice';
 
 interface NewCardFormProps {
   listId: string;
@@ -15,8 +16,8 @@ const NewCardForm: React.FC<NewCardFormProps> = ({ listId }) => {
   const handleAddCard = (e: React.FormEvent) => {
     e.preventDefault();
     if (cardTitle.trim()) {
-      const cardId = uuidv4(); // Generate a unique ID for the card
-      dispatch(addCardToList({ listId, cardId }));
+      // Dispatch createCard with the listId, title, and description
+      dispatch(createCard({ listId, title: cardTitle, description: cardDescription }));
       setCardTitle('');
       setCardDescription('');
     }
