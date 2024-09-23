@@ -23,10 +23,10 @@ const NewCardForm: React.FC<NewCardFormProps> = ({ listId }) => {
   };
 
   return (
-    <div className="group/new-card m-3 flex h-44 w-full justify-center">
-      <form onSubmit={handleAddCard} className="min-h-24 w-full flex-col items-start">
+    <div className="group/new-card m-3 flex h-44 w-full justify-center rounded-t-md">
+      <form onSubmit={handleAddCard} className="min-h-24 w-full flex-col items-start bg-off-white-light rounded-t-md">
         <input
-          className="w-full resize-none rounded-t-3xl border-0 bg-off-white-light px-0 py-6 text-xl font-black text-blue"
+          className="w-full resize-none border-0 bg-off-white-light px-12 py-8 text-xl font-black text-blue rounded-t-md"
           autoFocus
           type="text"
           placeholder="Title"
@@ -34,12 +34,12 @@ const NewCardForm: React.FC<NewCardFormProps> = ({ listId }) => {
           onChange={(e) => setCardTitle(e.target.value)}
         />
         <textarea
-          className="w-full resize-none border-0 bg-off-white-light text-blue"
+          className="w-full resize-none border-0 bg-off-white-light text-blue px-12 py-2"
           placeholder="Description"
           value={cardDescription}
           onChange={(e) => setCardDescription(e.target.value)}
         ></textarea>
-        <button type="submit" className="w-full p-4 bg-teal text-white">
+        <button type="submit" className="w-full p-4 bg-off-white-light text-blue rounded-b-md">
           Save
         </button>
       </form>
