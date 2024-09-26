@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addList, clearBoard } from '../slices/listsSlice';
+import { persistor } from '../store'; // Import persistor
 
 const Footer: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -9,13 +10,14 @@ const Footer: React.FC = () => {
   const handleAddList = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim()) {
-      dispatch(addList(title)); // Dispatch addList action
-      setTitle(''); // Clear input field after submitting
+      dispatch(addList(title));
+      setTitle('');
     }
   };
 
   const handleClearBoard = () => {
-    dispatch(clearBoard()); // Dispatch clearBoard action
+    dispatch(clearBoard());
+    persistor.purge(); // Purge localStorage to clear persisted state
   };
 
   return (
